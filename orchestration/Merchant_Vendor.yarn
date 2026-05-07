@@ -1,0 +1,36 @@
+title: Merchant_Interaction
+tags: 
+---
+// PULL DATA: Retrieve current state from the World State Table
+<<set $stress = get_wst_value("colony_stress_level")>>
+<<set $credits = get_wst_value("player_credits")>>
+<<set $pharma_price = get_wst_value("pharma_current")>>
+
+// SYSTEMIC EVALUATION: Choose entry tone based on Colony Stress
+<<if $stress > 70>>
+    Merchant: The air in here is getting thin, friend. And the prices? Even thinner.
+<<elseif $stress < 30>>
+    Merchant: Good day to be trading! The routes are open and the credits are flowing.
+<<else>>
+    Merchant: Need something? I'm open, but make it quick. Time is credits.
+<<endif>>
+
+// CONTEXT-DEPENDENT BRANCHING: React to Player wealth
+<<if $credits < 100>>
+    Merchant: Looking is free, but that's all you'll be doing with that empty wallet.
+<<else>>
+    Merchant: I see you've got some spending power. Pharmaceuticals are currently sitting at {$pharma_price} credits per unit. Interested?
+<<endif>>
+
+-> I need to buy supplies.
+    Merchant: Wise. In a lockdown, the one with the most stock wins. What'll it be?
+    <<call open_market_ui()>>
+-> Why is the price so high?
+    <<if $stress > 50>>
+        Merchant: Scarcity, supply lines, the Council taking their cut... take your pick. It ain't getting any cheaper.
+    <<else>>
+        Merchant: That's just the market talking. Pull-model economics, friend. Supply meets demand.
+    <<endif>>
+-> Just passing through.
+    Merchant: Suit yourself. Don't come crying when the shelves are bare.
+===

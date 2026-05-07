@@ -1,0 +1,40 @@
+{
+  "project": "PROXIMITY-Visual-Scripting",
+  "version": "1.0.0",
+  "world_state_table": {
+    "colony_status": {
+      "overall_stability": { "type": "float", "range": [0.0, 100.0], "description": "Global health of the colony. Influences random event frequency." },
+      "colony_stress_level": { "type": "float", "range": [0.0, 100.0], "description": "Abstracted tension metric. Determines NPC dialogue tone." },
+      "population_needs_met": { "type": "boolean", "description": "Binary gate for stability decay." },
+      "current_event_id": { "type": "string", "description": "Identifier for active colony-wide modifiers (e.g., 'LOCKDOWN_01')." }
+    },
+    "market_engine": {
+      "trade_route_efficiency": { "type": "float", "range": [0.0, 1.0], "description": "Multiplier for import/export costs and availability." },
+      "market_inflation_rate": { "type": "float", "description": "Global price modifier." },
+      "inventory_indices": {
+        "ore": { "supply": "int", "demand": "int", "base_price": 50 },
+        "energy": { "supply": "int", "demand": "int", "base_price": 100 },
+        "pharmaceuticals": { "supply": "int", "demand": "int", "base_price": 500 }
+      },
+      "item_prices": {
+        "ore_current": "float",
+        "energy_current": "float",
+        "pharma_current": "float"
+      }
+    },
+    "player_state": {
+      "credits": { "type": "int", "description": "Liquid colony currency." },
+      "reputation_score": { "type": "float", "range": [-100.0, 100.0], "description": "Favour with colony administration." },
+      "stipend_efficiency": { "type": "float", "description": "The 'survival gap' multiplier for fixed income." },
+      "inventory": {
+        "ore": "int",
+        "energy": "int",
+        "pharmaceuticals": "int"
+      },
+      "active_buffs": { "type": "array", "items": "string", "description": "List of active status modifiers from resource consumption." }
+    },
+    "archetype_translation": {
+      "current_mood": { "type": "string", "enum": ["PROSPERITY", "DESPERATION", "CONFLICT", "DISCOVERY", "STAGNATION"] }
+    }
+  }
+}
