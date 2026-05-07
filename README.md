@@ -6,20 +6,20 @@ A "Sovereign" framework for narrative-driven simulations where the world runs as
 
 ---
 
-## ## The Game: Mars Colony Lockdown
+## The Game: Mars Colony Lockdown
 In this simulation, player progress is not dictated by combat, but by **Economic Arbitrage** and **Systemic Leverage**. You are a contractor navigating a world where every NPC interaction and market shift is a direct reflection of a central, living data source.
 
-### ### The Core Loop
+### The Core Loop
 1.  **Acquisition**: Harvest resources (Ore, Energy) or acquire high-value pharmaceuticals.
 2.  **Analysis**: Monitor the **Market Engine** for supply/demand signals and trade-route efficiency.
 3.  **Execution**: Trade strategically to lower **Colony Stress** or optimize your **Stipend** efficiency.
 
 ---
 
-## ## The "Proximity" Framework (The Pull-Model)
+## The "Proximity" Framework (The Pull-Model)
 PVS abandons traditional "Push-Based" triggers. Instead of scripts forcing updates to the world, the world **pulls** the current state from the **World State Table (WST)**.
 
-### ### How it Works
+### How it Works
 * **The Source (WST)**: A centralized C# dictionary acting as the "Single Source of Truth" for variables like `ColonyStability` and `MarketInflationRate`.
 * **The Transformation**: Visual Scripting graphs (UVS) detect WST changes and recalculate market values or systemic health in real-time.
 * **The Presentation**: When you enter an NPC's proximity, the **Narrative API (Yarn Spinner)** pulls the current economic state to determine dialogue tone.
@@ -27,7 +27,7 @@ PVS abandons traditional "Push-Based" triggers. Instead of scripts forcing updat
 
 ---
 
-## ## Technical Infrastructure
+## Technical Infrastructure
 * **Engine**: Unity (2022.3 LTS).
 * **Logic (C-Core)**: High-performance math handling supply-demand curves ($Price = BaseValue \times (1 + (Need / Supply))$).
 * **Orchestration (UVS)**: Unity Visual Scripting acts as the "Revenue Operating System," automating the "Action Tax" of keeping systems in sync.
@@ -35,7 +35,7 @@ PVS abandons traditional "Push-Based" triggers. Instead of scripts forcing updat
 
 ---
 
-## ## File Map
+## File Map
 ```text
 PROXIMITY-Visual-Scripting/
 ├── README.md               # The Architectural Manifesto & Game Context
